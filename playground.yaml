@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playground
+  name: wil-playground
   labels:
-    app: playground
+    app: wil-playground
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: playground
+      app: wil-playground
   template:
     metadata:
       labels:
-        app: playground
+        app: wil-playground
     spec:
       containers:
-        - name: playground
+        - name: wil-playground
           image: wil42/playground:v2
           ports:
             - containerPort: 8888
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: playground
+  name: wil-playground
 spec:
   type: LoadBalancer
   selector:
-    app: playground
+    app: wil-playground
   ports:
     - name: http
       protocol: TCP
